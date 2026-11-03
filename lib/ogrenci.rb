@@ -6,10 +6,10 @@ class Ogrenci
 
   def initialize(ad:, durum: :aktif, devamsizlik: 0)
     unless DURUMLAR.include?(durum)
-      raise ArgumentError, "geçersiz durum: #{durum.inspect}"
+      raise ArgumentError, "geçersiz durum: #{durum.inspect} (#{DURUMLAR.join(', ')} olmalı)"
     end
     unless devamsizlik.is_a?(Integer) && DEVAMSIZLIK_ARALIGI.cover?(devamsizlik)
-      raise ArgumentError, "devamsizlik 0..10 arası tam sayı olmalı: #{devamsizlik.inspect}"
+      raise ArgumentError, "devamsizlik #{DEVAMSIZLIK_ARALIGI} arasında tam sayı olmalı: #{devamsizlik.inspect}"
     end
 
     @ad = ad
