@@ -17,5 +17,5 @@ Model: claude-opus-5-5 · Ajan: Claude Code 2.1.317 (`claude -p`) · Ortam: WSL 
 | 2026-11-03 | *Gözlenmedi (A'da sınıf yazılmadı)*. Önleyici: standart sınıfa monkey patch | – | AGENTS.md yasağı; `test_standart_sinif_yamasi_yasak` | Rehber + Sensör |
 | 2026-11-03 | Kanca yalnız hatayı bildiriyordu, YEŞİL sonuç ajana ulaşmadı. Ajan testleri elle 2 kez tekrar çalıştırdı (+2 tur) | B | `bin/kontrol`: YEŞİL durumda `additionalContext` JSON ile sonucu ajana bildirir. AGENTS.md: "kanca otomatik çalışır, elle tekrar çalıştırma" | Sensör + Rehber |
 | 2026-11-03 | Elle doğrulama için zincirli komut (`bin/kontrol; echo ...; ... \| tail`) izin reddine takıldı (+1 tur) | B | Üstteki madde: elle doğrulama gereksizleşince zincirli komut ihtiyacı kalkar | Rehber |
-
 | 2026-11-03 | Yeni hata gözlenmedi. Elle doğrulama ve izin reddi tekrarlanmadı (B: 7 tur → B2: 4 tur) | B2 | – (Ratchet 2 doğrulandı) | – |
+| 2026-11-03 | Sensörün statik testleri `File.read` ile dosyayı sistemin yerel ayar kodlamasıyla okuyordu. UTF-8 olmayan ortamda Türkçe karakterli kodda 3 test ERROR verdi | Temiz klon kontrolü (B2 sonrası) | `File.read(..., encoding: "UTF-8")`. Yalnızca test dosyası değişti, `lib/` aynı; `LANG=` ile 19/19 yeşil | Sensör |

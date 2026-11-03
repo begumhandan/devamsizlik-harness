@@ -100,7 +100,7 @@ class OgrenciTest < Minitest::Test
   end
 
   # --- Kod yasakları (statik sensör) ---
-  def kaynak = Dir[File.join(LIB, "**", "*.rb")].map { File.read(_1) }.join("\n")
+  def kaynak = Dir[File.join(LIB, "**", "*.rb")].map { File.read(_1, encoding: "UTF-8") }.join("\n")
 
   def test_method_missing_yasak
     refute_match(/method_missing|respond_to_missing\?/, kaynak)
@@ -114,6 +114,6 @@ class OgrenciTest < Minitest::Test
   end
 
   def test_durum_sorgulari_define_method_ile_uretilir
-    assert_match(/define_method/, File.read(File.join(LIB, "ogrenci.rb")))
+    assert_match(/define_method/, File.read(File.join(LIB, "ogrenci.rb"), encoding: "UTF-8"))
   end
 end
