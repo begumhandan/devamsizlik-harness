@@ -3,7 +3,7 @@
 ## Ortam
 - Dil: Ruby 3.4 (`.ruby-version`). Python veya başka dil YASAK.
 - Yalnızca stdlib + Minitest. Gem ekleme, Gemfile oluşturma.
-- Doğrulama: `bin/kontrol`. Çıkış kodu 0 değilse görev BİTMEMİŞTİR.
+- Doğrulama: `bin/kontrol` her Write/Edit sonrası kanca olarak OTOMATİK çalışır ve sonucu bildirir. Elle tekrar çalıştırma. YEŞİL görmeden görev BİTMEMİŞTİR.
 
 ## Dosyalar
 - `lib/ogrenci.rb` → `class Ogrenci`

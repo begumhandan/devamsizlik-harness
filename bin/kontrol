@@ -1,7 +1,7 @@
 #!/bin/sh
-# Sensör: Minitest testlerini çalıştırır.
-# Hata varsa kısa çıktıyı stderr'e yazar ve 2 ile çıkar.
-# Claude Code, çıkış kodu 2 olduğunda stderr'i ajana geri iletir.
+# Sensör: Minitest testlerini çalıştırır. Claude Code PostToolUse kancası olarak her Write/Edit sonrası çalışır.
+# KIRMIZI: kısa hata çıktısı stderr'e, çıkış kodu 2 (Claude Code stderr'i ajana iletir).
+# YEŞİL:   additionalContext JSON'u stdout'a, çıkış kodu 0 (ajan testlerin geçtiğini görür).
 # Her çalışma log/kontrol.log dosyasına yazılır (kanca kanıtı).
 cd "$(dirname "$0")/.." || exit 2
 mkdir -p log
@@ -12,4 +12,6 @@ if [ $? -ne 0 ]; then
   exit 2
 fi
 echo "$(date '+%H:%M:%S') YESIL" >> log/kontrol.log
+ozet=$(printf '%s\n' "$cikti" | grep 'runs,' | tail -n 1)
+printf '{"hookSpecificOutput":{"hookEventName":"PostToolUse","additionalContext":"bin/kontrol YESIL: %s. Tum testler gecti."}}\n' "$ozet"
 exit 0

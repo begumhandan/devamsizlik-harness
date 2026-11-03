@@ -15,5 +15,7 @@ Model: claude-opus-5-5 · Ajan: Claude Code 2.1.317 (`claude -p`) · Ortam: WSL 
 | 2026-11-03 | İstenmeyen ek özellik: CSV toplu kontrol ve örnek veri | A1 | AGENTS.md: "Başka dosya ekleme" | Rehber |
 | 2026-11-03 | *Gözlenmedi (A'da sınıf yazılmadı)*. Önleyici: `method_missing` | – | AGENTS.md yasağı; `test_method_missing_yasak`, `test_bilinmeyen_metot_sessizce_false_donmez` | Rehber + Sensör |
 | 2026-11-03 | *Gözlenmedi (A'da sınıf yazılmadı)*. Önleyici: standart sınıfa monkey patch | – | AGENTS.md yasağı; `test_standart_sinif_yamasi_yasak` | Rehber + Sensör |
+| 2026-11-03 | Kanca yalnız hatayı bildiriyordu, YEŞİL sonuç ajana ulaşmadı. Ajan testleri elle 2 kez tekrar çalıştırdı (+2 tur) | B | `bin/kontrol`: YEŞİL durumda `additionalContext` JSON ile sonucu ajana bildirir. AGENTS.md: "kanca otomatik çalışır, elle tekrar çalıştırma" | Sensör + Rehber |
+| 2026-11-03 | Elle doğrulama için zincirli komut (`bin/kontrol; echo ...; ... \| tail`) izin reddine takıldı (+1 tur) | B | Üstteki madde: elle doğrulama gereksizleşince zincirli komut ihtiyacı kalkar | Rehber |
 
-B koşusu sonuçları ölçümden sonra bu dosyaya eklenecek.
+B2 koşusu sonuçları ölçümden sonra bu dosyaya eklenecek.
