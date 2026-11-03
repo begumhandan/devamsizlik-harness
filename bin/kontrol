@@ -1,0 +1,15 @@
+#!/bin/sh
+# Sensör: Minitest testlerini çalıştırır.
+# Hata varsa kısa çıktıyı stderr'e yazar ve 2 ile çıkar.
+# Claude Code, çıkış kodu 2 olduğunda stderr'i ajana geri iletir.
+# Her çalışma log/kontrol.log dosyasına yazılır (kanca kanıtı).
+cd "$(dirname "$0")/.." || exit 2
+mkdir -p log
+cikti=$(ruby -Ilib test/ogrenci_test.rb 2>&1)
+if [ $? -ne 0 ]; then
+  echo "$(date '+%H:%M:%S') KIRMIZI" >> log/kontrol.log
+  printf '%s\n' "$cikti" | tail -n 30 >&2
+  exit 2
+fi
+echo "$(date '+%H:%M:%S') YESIL" >> log/kontrol.log
+exit 0

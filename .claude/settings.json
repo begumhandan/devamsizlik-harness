@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "deny": ["Edit(test/**)", "Write(test/**)"]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/bin/kontrol" }
+        ]
+      }
+    ]
+  }
+}
