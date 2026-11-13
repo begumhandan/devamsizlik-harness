@@ -22,3 +22,4 @@ Model: claude-opus-5-5 · Ajan: Claude Code 2.1.317 (`claude -p`) · Ortam: WSL 
 | 2026-11-13 | Kural belirsizken ajan kendi varsayımını koda koydu ("Bu benim varsayımım", `>`) | A0, A1 | AGENTS.md: "Farz etme" bölümü | Rehber |
 | 2026-11-13 | Son cevap kodu ve kuralları madde madde tekrar anlattı (gereksiz çıktı tokenı) | B, B2 | AGENTS.md: "Çıktı" bölümü (en fazla 3 satır) | Rehber |
 | 2026-11-13 | *Gözlenmedi (ders transkripti incelemesi)*. Önleyici: işletim sistemi rehberde yazmıyordu; kurallarda gerekçe yoktu | – | AGENTS.md: "Linux (WSL Ubuntu)" ve kod kurallarına kısa "Çünkü" gerekçeleri | Rehber |
+| 2026-11-13 | Yeni hata gözlenmedi. Son cevap 2 satıra indi, çıktı tokenı 2.017 → 1.283 (B2 → B3, −36%) | B3 | – (Ratchet 3 doğrulandı) | – |
